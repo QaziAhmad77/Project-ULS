@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>Students Library System</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Library</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item ">
+                    <a class="nav-link" href="/api/main/signUpForm">Sign Up</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/api/main/logInForm">Log In</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0" action="/api/main/getStudents/search" method="post">
+                <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" id="searchTxt" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <div class="container">
+        <h1 style="text-align: center; margin: 0px">All Students</h1>
+        <p style=" margin: 0px"><a class="btn btn-primary mb-2" href="/api/main">Back to Main</a></p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Registration No</th>
+                    <th scope="col">Department</th>
+                    <th scope="col">Gender</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <% data.forEach((item)=> { %>
+                <tr></tr>
+                <th scope="row">
+                    <%= item.id%>
+                </th>
+                <td class="list">
+                    <%= item.name%>
+                </td>
+                <td cl>
+                    <%= item.email%>
+                </td>
+                <td>
+                    <%= item.registrationNo%>
+                </td>
+                <td>
+                    <%= item.department%>
+                </td>
+                <td>
+                    <%= item.gender%>
+                </td>
+                <td>
+                    <a class="btn btn-primary" href="/user/<%= item.id%>">View</a>
+                    <a class="btn btn-success" href="/edit/<%= item.id%>">Edit</a>
+                    <a class="btn btn-danger" href="/delete/<%= item.id%>">Delete</a>
+                </td>
+                <% }); %>
+                    </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+</body>
+</html>
