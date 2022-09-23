@@ -1,0 +1,15 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body {
+    background-image: url("c.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: black;
+}
+h1 {
+    color: whitesmoke;
+    margin: 500px auto 0px auto;
+    text-align: center;
+}
